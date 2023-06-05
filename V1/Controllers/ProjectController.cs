@@ -40,5 +40,18 @@ namespace ApiVersioningTests.V1.Controllers
             if (project == null) return NotFound();
             return Ok(project);
         }
+
+        [HttpPatch("{id:int:min(1):required}")]
+        [ApiVersion(1.1)]
+        public IActionResult Patch([FromRoute] int id, UpdateProjectRequest request)
+        {
+            var project = _projects.SingleOrDefault(p => p.Id == id);
+
+            if (project == null) return NotFound();
+
+            project.Name = request.Name;
+
+            return Ok();
+        }
     }
 }

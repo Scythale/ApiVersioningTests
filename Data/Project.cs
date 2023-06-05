@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ApiVersioningTests.Data
+﻿namespace ApiVersioningTests.Data
 {
     public class Project
     {
@@ -14,7 +12,7 @@ namespace ApiVersioningTests.Data
         /// <summary>
         /// Added in V1
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         ///// <summary>
         ///// Added in V2
