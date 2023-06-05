@@ -7,6 +7,7 @@ namespace ApiVersioningTests.V1.Controllers
 {
     [Route("api/[controller]")]
     [ApiVersion(1.0)]
+    [ApiVersion(1.1)]
     public class ProjectController : ControllerBase
     {
         private List<Project> _projects;
@@ -42,7 +43,7 @@ namespace ApiVersioningTests.V1.Controllers
         }
 
         [HttpPatch("{id:int:min(1):required}")]
-        [ApiVersion(1.1)]
+        [MapToApiVersion(1.1)]
         public IActionResult Patch([FromRoute] int id, UpdateProjectRequest request)
         {
             var project = _projects.SingleOrDefault(p => p.Id == id);
