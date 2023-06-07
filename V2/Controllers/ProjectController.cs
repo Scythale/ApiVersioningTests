@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiVersioningTests.V2.Controllers
 {
     [Route("api/[controller]")]
-    [ApiVersion(2.0)]
+	[Route("api/v{version:apiVersion}/[controller]")]
+	[ApiVersion(2.0)]
     public class ProjectController : ControllerBase
     {
         private List<Project> _projects;

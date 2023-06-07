@@ -18,7 +18,8 @@ builder.Services.AddApiVersioning(
                         // "api-supported-versions" and "api-deprecated-versions"
                         options.ApiVersionReader = ApiVersionReader.Combine(
                             new HeaderApiVersionReader("X-Api-Version"),
-                            new QueryStringApiVersionReader("api-version")
+                            new QueryStringApiVersionReader("api-version"),
+                            new UrlSegmentApiVersionReader()
                         );
 
                         options.ReportApiVersions = true;
